@@ -17,11 +17,11 @@ jobs:
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
           cache: npm
@@ -50,12 +50,39 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Test Local Action
+      - name: Test Local Action (specific version)
         uses: ./
         with:
-          version: '0.11.0'
+          version: '0.13.1'
+
+      - name: Ensure humctl version 0.13.1 is installed
+        run: humctl version
+
+      - name: Test Local Action (latest minor)
+        uses: ./
+        with:
+          version: '0.13'
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Ensure humctl is installed
+        run: humctl version
+
+      - name: Test Local Action (latest major)
+        uses: ./
+        with:
+          version: '0'
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Ensure humctl is installed
+        run: humctl version
+
+      - name: Test Local Action (carot range)
+        uses: ./
+        with:
+          version: '^0'
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Ensure humctl is installed
         run: humctl version
