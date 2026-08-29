@@ -17,7 +17,7 @@
     ".": "./dist/index.js"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   },
   "main": "dist/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "format:write": "prettier --write **/*.ts",
     "format:check": "prettier --check **/*.ts",
     "lint": "npx eslint",
-    "package": "esbuild src/index.ts --bundle --platform=node --target=node20 --outfile=dist/index.js",
+    "package": "esbuild src/index.ts --bundle --platform=node --target=node24 --outfile=dist/index.js",
     "test": "jest"
   },
   "jest": {
@@ -54,21 +54,21 @@
     "resolver": "./__tests__/jest-resolver.js"
   },
   "dependencies": {
-    "@actions/core": "^3.0.0",
+    "@actions/core": "^3.0.1",
     "@actions/tool-cache": "^4.0.0",
     "@octokit/rest": "^20.1.1",
     "semver": "^7.7.4"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.5.0",
+    "@types/node": "^26.2.0",
     "@types/semver": "^7.7.1",
-    "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@typescript-eslint/eslint-plugin": "^8.65.0",
     "@typescript-eslint/parser": "^8.57.1",
-    "esbuild": "^0.27.4",
-    "eslint": "^9.39.4",
-    "eslint-plugin-github": "^6.0.0",
-    "eslint-plugin-jest": "^29.15.1",
+    "esbuild": "^0.28.1",
+    "eslint": "^9.39.5",
+    "eslint-plugin-github": "^6.1.2",
+    "eslint-plugin-jest": "^29.16.0",
     "eslint-plugin-jsonc": "^2.21.1",
     "eslint-plugin-prettier": "^5.5.5",
     "jest": "^30.3.0",
@@ -79,6 +79,9 @@
   },
   "overrides": {
     "minimatch@3": "3.1.5",
-    "minimatch@9": "9.0.9"
+    "minimatch@9": "9.0.9",
+    "brace-expansion@1": "1.1.18",
+    "brace-expansion@2": "2.1.4",
+    "brace-expansion@5": "5.0.9"
   }
 }
